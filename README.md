@@ -1,1 +1,17 @@
-# Tracking-fraudulent-remittances-on-the-blockchain
+# Tracking-fraudulent-remittances-on-the-blockchain. 
+ブロックチェーンの中身を見て、ブロックチェーンの中身を解析するプログラムを作成しました。  
+
+環境構築には、以下の3つのメリットから、infura(EthereumネットワークにアクセスするためのAPIを提供してくれるサービス)を利用しました。  
+① 自らノードを立てなくてもよい。  
+② 多少の制限はあるが、基本的にはgeth(Ethereumクライアントの中で最もメジャー)と同じAPIが提供される。  
+③ METAMASKもインフラとしてinfuraを利用している。
+
+## 実際の解析について  
+犯人は以下のトランザクションでとあるアカウントから、まあまあな量のEtherを不正に送金し、その後捜査の撹乱のため複数のアカウントに対して流出したEtherを拡散しているとする.  
+
+[トランザクション情報](https://rinkeby.etherscan.io/tx/0x4c86c6b2c176f0720f02f92adcf4044817e1e2bd76a518a4c2fd0e2429c5d29b )
+
+これを元に、不正送金をBlock Height4103935まで追跡し、以下の3つの情報を取得しました。  
+① 送金に関わったアカウント数.  
+② 送金に関わったアカウントリスト.  
+③ それぞれの送金に関する送金額.  
